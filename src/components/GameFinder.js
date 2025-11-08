@@ -41,7 +41,13 @@ export default function GameFinder() {
             <div className="genre-selectors">
                 <select 
                     value={genre1} 
-                    onChange={(e) => setGenre1(e.target.value)}
+                    onChange={(e) => {
+                        setGenre1(e.target.value);
+                        // Clear genre2 if it matches the newly selected genre1
+                        if (e.target.value === genre2) {
+                            setGenre2('');
+                        }
+                    }}
                     className="genre-select"
                 >
                     <option value="">Select first genre...</option>
@@ -58,7 +64,7 @@ export default function GameFinder() {
                     className="genre-select"
                 >
                     <option value="">Select second genre...</option>
-                    {genres.map(genre => (
+                    {genres.filter(genre => genre.id.toString() !== genre1).map(genre => (
                         <option key={genre.id} value={genre.id}>
                             {genre.name}
                         </option>
