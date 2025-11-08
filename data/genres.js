@@ -1,4 +1,4 @@
-// A subset of IGDB genre IDs and names
+//IGDB genre IDs and names
 export const genres = [
     { id: 4, name: "Fighting" },
     { id: 5, name: "Shooter" },
